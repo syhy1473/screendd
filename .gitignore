@@ -1,0 +1,29 @@
+# Gradle
+.gradle/
+.gradle-home/
+build/
+app/build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+
+# Gradle distribution & downloads
+gradle-9.9.0/
+gradle-9.9.0-bin.zip
+gradle-list.html
+
+# temp / probe / helper files
+.tmp/
+.acl-recovery/
+build-out.log
+build.bat
+CheckDir.java
+TestUrl.java
+Download.java
+/activity-meta.xml
+/agp-meta.xml
+/compose-meta.xml
+/kotlin-meta.xml
+/m_*.xml
