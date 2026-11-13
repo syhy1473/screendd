@@ -45,13 +45,9 @@ class MainActivity : AppCompatActivity() {
         val atMax = TimeoutRepository.isAtMax(this)
         val cur = TimeoutRepository.currentTimeout(this)
 
-        statusText.text = if (atMax) {
-            "当前：最大锁屏时长（${TimeoutRepository.formatMs(TimeoutRepository.MAX_TIMEOUT_MS)}）"
-        } else {
-            "当前：${TimeoutRepository.formatMs(cur)}"
-        }
+        statusText.text = "当前自动锁屏时长：${TimeoutRepository.formatMs(cur)}"
         detailText.text = if (atMax) {
-            "点下方按钮恢复上次的锁屏时长"
+            "已开启最大锁屏时长（${TimeoutRepository.formatMs(TimeoutRepository.MAX_TIMEOUT_MS)}），点下方按钮恢复上次值"
         } else {
             "点下方按钮切换到 ${TimeoutRepository.formatMs(TimeoutRepository.MAX_TIMEOUT_MS)} 锁屏"
         }

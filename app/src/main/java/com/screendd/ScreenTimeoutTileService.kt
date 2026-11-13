@@ -51,12 +51,15 @@ class ScreenTimeoutTileService : TileService() {
 
     private fun refreshTile() {
         val tile = qsTile ?: return
-        tile.state = if (TimeoutRepository.isAtMax(applicationContext)) {
+        val ctx = applicationContext
+        tile.state = if (TimeoutRepository.isAtMax(ctx)) {
             Tile.STATE_ACTIVE
         } else {
             Tile.STATE_INACTIVE
         }
         tile.label = getString(R.string.tile_label)
+        // 副标题直接显示当前系统值，点击后立刻刷新，作为 Toast 被 ROM 屏蔽时的兜底反馈
+        tile.subtitle = "当前自动锁屏时长：${TimeoutRepository.formatMs(TimeoutRepository.currentTimeout(ctx))}"
         tile.updateTile()
     }
 
